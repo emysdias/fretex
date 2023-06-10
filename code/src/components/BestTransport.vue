@@ -41,9 +41,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "../utils/colors.scss";
 .title .navbar {
-  background-color: #00aca6 !important;
+  background-color: $green-water !important;
 }
 
 .title .navbar-brand {
