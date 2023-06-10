@@ -2,15 +2,13 @@
   <div class="box">
     <div class="box-title">
       <i class="fas fa-map"></i>
-      <b>Insira o destino e o peso</b>
+      <p>Insira o destino e o peso</p>
     </div>
     <div class="box-inputs">
       <label for="destino">Destino</label>
       <select id="destino" v-model="destinoSelecionado">
         <option value="" disabled selected hidden>Selecione o destino</option>
-        <option value="A">Destino A</option>
-        <option value="B">Destino B</option>
-        <option value="C">Destino C</option>
+        <option v-for="city in cities" :value="city.id" :key="city.id">{{ city.city }}</option>
       </select>
 
       <label for="peso">Peso</label>
@@ -23,15 +21,32 @@
 
 <script>
 
+import list from "../services/trasport.js"
+
 export default {
   data() {
     const peso = ''
     const destinoSelecionado = ''
+    const cities = []
 
     return {
       peso,
-      destinoSelecionado
+      destinoSelecionado,
+      cities
     }
+  },
+
+  created() {
+    list.getAllTransports().then(response => {
+      const uniqueCity = new Set();
+      response.data.forEach(transport => {
+        uniqueCity.add(transport.city);
+      });
+      this.cities = Array.from(uniqueCity).map(city => ({ city }));
+    })
+      .catch(error => {
+        console.error(error);
+      });
   },
 
   methods: {
@@ -50,6 +65,7 @@ export default {
 .box {
   background-color: $gray;
   padding: 30px;
+  border-radius: 10px;
 }
 
 .box>b {
@@ -57,18 +73,24 @@ export default {
 }
 
 .box-title {
-  text-align: center;
-  margin-top: 100px;
+  margin-top: 130px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.box-title>b {
-  margin-left: 10px;
+.box-title>p {
+  padding-left: 10px;
+  margin: 0;
 }
 
 .box-inputs {
-  display: grid;
+  display: flex;
+  margin: auto;
   margin-top: 40px;
   margin-bottom: 40px;
+  flex-direction: column;
 }
 
 .box-inputs>label {
@@ -83,6 +105,7 @@ export default {
   background-color: $white;
   color: $dark-gray;
   width: 100%;
+  border-radius: 5px;
 }
 
 .box>button {
@@ -91,10 +114,11 @@ export default {
   display: flex;
   margin: auto;
   margin-top: 20px;
-  width: 60%;
+  width: 40%;
   justify-content: center;
-  height: 30px;
+  height: 35px;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
+  border-radius: 5px;
 }
 </style>

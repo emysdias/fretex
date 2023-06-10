@@ -9,7 +9,9 @@
 
     <div class="aligned-components">
       <AnalyzeTrasportsBox />
-
+      <div class="result-box">
+        Nenhum dado selecionado
+      </div>
     </div>
 
   </div>
@@ -63,7 +65,18 @@ export default {
 
 .aligned-components {
   padding: 20px;
-  // display: flex;
-  // width: 50%;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.aligned-components>.box{
+  width: 38%;
+}
+
+.result-box {
+  width: 58%;
+  text-align: center;
+  margin: auto;
 }
 </style>
