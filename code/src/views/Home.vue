@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <NavBar />
-    <div class="container">
+    <div class="home-box">
       <BestTransport />
     </div>
   </div>
@@ -20,4 +20,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped lang="scss">
+
+@import "../utils/colors.scss";
+.home-box {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 60%;
+  box-shadow: 0px 0px 10px $black;
+  border-radius: 20px;
+}
+</style>
