@@ -2,20 +2,20 @@
   <div id="home">
     <NavBar />
     <div class="home-box">
-      <BestTransport />
+      <BestTransportBox />
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from '../components/NavBar.vue';
-import BestTransport from '../components/BestTransport.vue';
+import BestTransportBox from '../components/BestTransportBox.vue';
 
 export default {
   name: 'HomePage',
   components: {
     NavBar,
-    BestTransport
+    BestTransportBox
   }
 }
 </script>
@@ -24,7 +24,7 @@ export default {
 
 @import "../utils/colors.scss";
 .home-box {
-  margin: 0 auto;
+  margin: auto;
   margin-top: 30px;
   width: 60%;
   box-shadow: 0px 0px 10px $black;
