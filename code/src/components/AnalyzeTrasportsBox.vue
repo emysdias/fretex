@@ -6,16 +6,16 @@
     </div>
     <div class="box-inputs">
       <label for="destino">Destino</label>
-      <select id="destino" v-model="destinoSelecionado">
+      <select id="destino" v-model="destinationSelected">
         <option value="" disabled selected hidden>Selecione o destino</option>
-        <option v-for="city in cities" :value="city.id" :key="city.id">{{ city.city }}</option>
+        <option v-for="city in cities" :value="city.city" :key="city.id">{{ city.city }}</option>
       </select>
 
       <label for="peso">Peso</label>
-      <input placeholder="Peso da carga em Kg" type="text" id="peso" v-model="peso" @blur="applyMask">
+      <input placeholder="Peso da carga em Kg" type="number" min=0 id="peso" v-model="weight">
     </div>
 
-    <button>Analisar</button>
+    <button @click="analyzeFreight">Analisar</button>
   </div>
 </template>
 
@@ -25,19 +25,24 @@ import list from "../services/trasport.js"
 
 export default {
   data() {
-    const peso = ''
-    const destinoSelecionado = ''
+    const weight = ''
+    const destinationSelected = ''
     const cities = []
+    const bestPriceFreight = null
+    const fastestFreight = null
 
     return {
-      peso,
-      destinoSelecionado,
-      cities
+      weight,
+      destinationSelected,
+      cities,
+      bestPriceFreight,
+      fastestFreight
     }
   },
 
   created() {
     list.getAllTransports().then(response => {
+      console.log(this.destinationSelected)
       const uniqueCity = new Set();
       response.data.forEach(transport => {
         uniqueCity.add(transport.city);
@@ -50,12 +55,19 @@ export default {
   },
 
   methods: {
-    applyMask() {
-      if (this.peso) {
-        this.peso += ' kg';
+    analyzeFreight() {
+      if (this.weight && this.destinationSelected) {
+        list.getTransportValue(this.weight, this.destinationSelected)
+          .then(response => {
+            this.bestPriceFreight = response.cheapestFreight;
+            this.fastestFreight = response.fastestFreight;
+          })
+          .catch(error => {
+            console.error(error);
+          });
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -106,6 +118,12 @@ export default {
   color: $dark-gray;
   width: 100%;
   border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .box>button {
