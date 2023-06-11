@@ -18,7 +18,7 @@
     <button @click="analyzeFreight">Analisar</button>
 
     <div v-if="showModal">
-      <AlertModal @close="closeModal"/>
+      <AlertModal @close="closeModal" />
     </div>
   </div>
 </template>
@@ -73,12 +73,12 @@ export default {
           .then(response => {
             this.bestPriceFreight = response.cheapestFreight;
             this.fastestFreight = response.fastestFreight;
+            this.$emit('dataReturned', this.bestPriceFreight, this.fastestFreight);
           })
           .catch(error => {
             console.error(error);
           });
       } else {
-        console.log("here")
         this.showModal = true;
       }
     },

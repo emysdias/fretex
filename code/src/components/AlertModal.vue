@@ -2,8 +2,8 @@
   <div>
     <div class="modal">
       <div class="modal-box">
-        <h2>Modal</h2>
-        <p>Insira os valores para realizar a análise</p>
+        <i class="fas fa-exclamation"></i>
+        <p>Insira os valores para realizar a análise.</p>
         <button @click="closeModal">Fechar</button>
       </div>
     </div>
@@ -37,7 +37,26 @@ export default {
 
 .modal-box {
   background-color: $white;
-  padding: 20px;
-  width: 50%;
+  padding: 50px;
+  width: 30%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.modal-box>p{
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-size: 25px;
+  width: 70%;
+  text-align: center;
+}
+
+.modal-box>button {
+  border: none;
+  background-color: $green-water;
+  width: 30%;
+  height: 35px;
+  border-radius: 5px;
 }
 </style>

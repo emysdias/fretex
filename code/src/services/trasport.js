@@ -21,11 +21,11 @@ export default {
           const heavyCost = parseFloat(
             transport.cost_transport_heavy.replace("R$", "").trim()
           );
-          const totalCost =
+          const total_cost =
             weight <= 100 ? lightCost * weight : heavyCost * weight;
           return {
             ...transport,
-            totalCost,
+            total_cost,
           };
         });
 
