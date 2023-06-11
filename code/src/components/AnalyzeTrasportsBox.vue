@@ -16,27 +16,39 @@
     </div>
 
     <button @click="analyzeFreight">Analisar</button>
+
+    <div v-if="showModal">
+      <AlertModal @close="closeModal"/>
+    </div>
   </div>
 </template>
 
 <script>
 
 import list from "../services/trasport.js"
+import AlertModal from "./AlertModal.vue"
 
 export default {
+
+  components: {
+    AlertModal,
+  },
+
   data() {
     const weight = ''
     const destinationSelected = ''
     const cities = []
     const bestPriceFreight = null
     const fastestFreight = null
+    const showModal = false
 
     return {
       weight,
       destinationSelected,
       cities,
       bestPriceFreight,
-      fastestFreight
+      fastestFreight,
+      showModal
     }
   },
 
@@ -65,7 +77,14 @@ export default {
           .catch(error => {
             console.error(error);
           });
+      } else {
+        console.log("here")
+        this.showModal = true;
       }
+    },
+
+    closeModal() {
+      this.showModal = false;
     }
   }
 }
