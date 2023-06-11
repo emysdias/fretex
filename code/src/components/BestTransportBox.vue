@@ -14,9 +14,11 @@
       </div>
       <div v-else class="right-aligned-components">
         <ValueCards :transportData="bestPriceFreight" :title="'Frete com menor valor'" />
+        <br />
         <ValueCards :transportData="fastestFreight" :title="'Frete mais rápido'" />
-
-        <button @click="makeDataEmpty">Limpar</button>
+        <div class="clean-button">
+          <button @click="makeDataEmpty">Limpar</button>
+        </div>
       </div>
     </div>
 
@@ -60,7 +62,7 @@ export default {
       return Object.keys(obj).length === 0;
     },
 
-    makeDataEmpty(){
+    makeDataEmpty() {
       this.bestPriceFreight = {}
       this.fastestFreight = {}
     }
@@ -95,37 +97,70 @@ export default {
   padding: 20px;
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
 }
 
 .aligned-components>.box {
-  width: 55%;
+  width: 40%;
 }
 
 .right-aligned-components {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
   padding-left: 20px;
   justify-content: center;
+  position: relative;
 }
 
-.right-aligned-components>button {
+.clean-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+.clean-button>button {
   border: none;
   background-color: $green-water;
   display: flex;
-  margin: auto;
-  margin-top: 20px;
-  width: 40%;
   justify-content: center;
   height: 35px;
+  width: 50%;
   align-items: center;
-  margin-bottom: 150px;
   border-radius: 5px;
+  float: right;
+
 }
 
 .result-box {
   text-align: center;
   margin: auto;
+}
+
+@media (max-width: 1200px) {
+  .aligned-components {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .aligned-components>.box {
+    width: 100%;
+  }
+
+  .right-aligned-components, .result-box {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    position: static;
+  }
+
+  .clean-button {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .right-aligned-components{
+    padding-left: 0;
+  }
 }
 </style>

@@ -158,4 +158,10 @@ input::-webkit-inner-spin-button {
   margin-bottom: 150px;
   border-radius: 5px;
 }
+
+@media (max-width: 600px) {
+  .box>button {
+    width: 100%;
+  }
+}
 </style>
