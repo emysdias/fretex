@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "api_serve": "json-server --watch data.json",
+    "api_serve": "json-server --watch data/data.json",
     "test": "npx jest"
   },
   "dependencies": {

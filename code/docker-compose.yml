@@ -5,11 +5,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: app-image
     container_name: app-container
     restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
     ports:
       - "8080:8080"
-  
+
   json-server:
     container_name: json-server-container
     image: json-server-image
