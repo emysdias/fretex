@@ -59,4 +59,28 @@ export default {
   height: 35px;
   border-radius: 5px;
 }
+
+@media (max-width: 1200px) {
+  .modal-box {
+    width: 50%;
+  }
+
+  .modal-box>p{
+    width: 80%;
+  }
+
+  .modal-box>button {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-box {
+    width: 70%;
+  }
+
+  .modal-box>button {
+    width: 80%;
+  }
+}
 </style>
