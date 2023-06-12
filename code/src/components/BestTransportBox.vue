@@ -2,7 +2,7 @@
   <div>
     <b-navbar>
       <b-navbar-brand>
-        <i class="fas fa-truck"></i>
+        <font-awesome-icon icon="fa-solid fa-truck" />
         <b>{{ appName }}</b>
       </b-navbar-brand>
     </b-navbar>
@@ -13,9 +13,10 @@
         Nenhum dado selecionado
       </div>
       <div v-else class="right-aligned-components">
-        <ValueCards :transportData="bestPriceFreight" :title="'Frete com menor valor'" />
+        <ValueCards :transportData="bestPriceFreight" :title="'Frete com menor valor'"
+          :iconName="'fa-solid fa-hand-holding-dollar'" />
         <br />
-        <ValueCards :transportData="fastestFreight" :title="'Frete mais rápido'" />
+        <ValueCards :transportData="fastestFreight" :title="'Frete mais rápido'" :iconName="'fa-regular fa-clock'" />
         <div class="clean-button">
           <button @click="makeDataEmpty">Limpar</button>
         </div>
@@ -147,7 +148,8 @@ export default {
     width: 100%;
   }
 
-  .right-aligned-components, .result-box {
+  .right-aligned-components,
+  .result-box {
     width: 100%;
     margin-top: 40px;
     margin-bottom: 60px;
@@ -159,7 +161,7 @@ export default {
     bottom: 20px;
   }
 
-  .right-aligned-components{
+  .right-aligned-components {
     padding-left: 0;
   }
 }

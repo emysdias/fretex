@@ -2,7 +2,7 @@
   <div>
     <div class="modal">
       <div class="modal-box">
-        <i class="fas fa-exclamation"></i>
+        <font-awesome-icon icon="fa-solid fa-circle-exclamation" :size="'3x'"/>
         <p>Insira os valores para realizar a análise.</p>
         <button @click="closeModal">Fechar</button>
       </div>

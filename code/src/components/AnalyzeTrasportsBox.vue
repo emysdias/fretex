@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="box-title">
-      <i class="fas fa-map"></i>
+      <font-awesome-icon icon="fa-regular fa-map" />
       <p>Insira o destino e o peso</p>
     </div>
     <div class="box-inputs">

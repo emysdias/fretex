@@ -2,7 +2,7 @@
   <div class="value-card-container">
     <div class="value-card-box-with-icon">
       <div class="value-card-box-icon">
-        <i class="fas fa-truck"></i>
+        <font-awesome-icon :icon="iconName" :size="'2x'"/>
       </div>
       <div class="value-card">
         <b>{{ title }}</b>
@@ -22,7 +22,7 @@
 import currencyFilter from '../utils/currencyFilter.js';
 
 export default {
-  props: ['transportData', 'title'],
+  props: ['transportData', 'title', 'iconName'],
   filters: {
     currency: currencyFilter
   }
@@ -51,10 +51,7 @@ p {
   align-items: center;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-}
-
-.value-card-box-icon>i {
-  width: 30px;
+  padding: 30px;
 }
 
 .value-card,
