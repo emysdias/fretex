@@ -1,10 +1,4 @@
-# Desafio CoorLab
-Olá DEV, pronto para participar do nosso processo seletivo?
-
-## Requisitos
-- Noções de programação web
-- Javascript
-- HTML
+# Fretex
 
 ## Desafio
 Uma empresa estabelecida em Campinas busca assistência para determinar a opção de transportadora mais adequada, levando em consideração a cidade de destino e o prazo de entrega. A equipe de logística realiza o registro de todas as cotações de frete no sistema de gestão logística da empresa. Por sorte, esse sistema é equipado com uma API REST que disponibiliza de forma estruturada todos os dados coletados das cotações de frete. Tais informações estão formatadas da seguinte maneira:
@@ -24,8 +18,15 @@ $ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X G
 ]
 ```
 
-Implemente uma aplicação utilizando Vue.js e JavaScript, com base nos requisitos descritos na história a seguir:
 
+# Requisitos
+
+- node
+- npm
+- docker
+- docker-compose
+
+## Proposta
 
 **História de Usuário: Análise de Frete**
 
@@ -44,18 +45,11 @@ Então devo visualizar o nome da transportadora, o custo total e o tempo de entr
 E devo visualizar o nome da transportadora, o custo total e o tempo de entrega do frete mais rápido.
 
 
-**Protótipo**
+**Aplicação**
 
-![alt text](./doc/prototype.gif "Protótipo")
+![gif](./doc/fretex.gif "Protótipo")
 
-
-A implementação da aplicação deve utilizar Vue.js e deve seguir os requisitos da história de usuário, cenário e protótipo.
-Do ponto de vista de tecnologia utilizada para implementação, a unica exigência é utilizar Vue.js, outras bibliotecas, componentes e frameworks, podem ser utilizados, desde que sejam de código-aberto.
-
-
-## Instruções para Implementação
-
-Para facilitar a resolução do desafio, deixamos uma parte do projeto já montado para você. No diretório "code" deste repositório você terá o esqueleto do projeto já montado.
+## Como rodar a aplicação
 
 Utilize os seguintes comandos para rodar a página do desafio.
 
@@ -70,7 +64,18 @@ Você também vai precisar ligar o servidor da API REST para consultar as cotaç
 
 ```
 npm run api_serve
+```
 
+Para rodar os testes:
+
+```
+npm run test
+```
+
+Para rodar com o docker, estando na pasta code:
+
+```
+docker-compose up --build
 ```
 
 Para testar a api, você pode usar o seguinte comando:
@@ -116,27 +121,3 @@ Keep-Alive: timeout=5
   },
 ]
 ```
-
-## Avaliação
-O que vamos avaliar:
-- Atenção aos requisitos do projeto.
-- Atenção as instruções que fornecemos.
-- Lógica.
-- Qualidade.
-- Manutenabilidade.
-- Organização.
-- Boas práticas.
-
-## Instruções
-Siga os seguintes passos para a execução do desafio:
-1. Crie um repositório **público** no GitHub.
-2. Faça o **clone** do repositório que você acabou de criar.
-3. Extraia os arquivos do "desafio_coorlab.zip" na pasta que você fez o clone do repostório.
-4. Faça o primeiro **commit** com apenas estes arquivos no seu repositório, desta forma fica mais simples avaliar o que você implementou.
-5. Implemente o desafio.
-6. Faça o **commit** da sua implementação, inclusive se você quiser criar um commit diferente para cada parte que você implementou, é uma pratica que gostamos muito aqui na Coordene.
-7. Faça o **push** das suas alterações.
-8. Após concluir os passos anteriores, preencha este [formulário](https://airtable.com/shrTjtwUrw7I1CuxE).
-
-### Importante
-- Não se esqueça de deixar o seu ***repositório público*** para que possamos revisar o seu código.
