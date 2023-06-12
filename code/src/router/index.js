@@ -10,6 +10,22 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Home.vue"),
   },
+  {
+    path: "/erro-interno",
+    name: "InternalError",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/InternalError.vue"),
+  },
+  {
+    path: "/404",
+    name: "PageNotFound",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/PageNotFound.vue"),
+  },
+  {
+    path: "*",
+    redirect: "/404",
+  },
 ];
 
 const router = new VueRouter({

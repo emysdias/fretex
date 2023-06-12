@@ -27,6 +27,7 @@
 
 import list from "../services/trasport.js"
 import AlertModal from "./AlertModal.vue"
+import router from "@/router"
 
 export default {
 
@@ -62,6 +63,8 @@ export default {
       this.cities = Array.from(uniqueCity).map(city => ({ city }));
     })
       .catch(error => {
+        console.log("here")
+        router.push("/erro-interno")
         console.error(error);
       });
   },
